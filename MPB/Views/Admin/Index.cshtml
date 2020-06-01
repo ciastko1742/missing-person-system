@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Panel administratora";
+}
+
+@if (ViewBag.LoggedUser != null && ViewBag.LoggedUser.Role == "admin")
+{
+
+    <h4>Witaj! Jesteś administratorem. Poniżej menu dostępne tylko dla adminów</h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lista zaginionych</h3>
+                </div>
+                <div class="panel-body">
+                    W tym panelu możesz usuwać i edytować wszystkie wpisy osób zaginionych.
+                    <a href="/MissingPeople/PeopleList" class="btn btn-primary">Przejdź</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lista użytkowników</h3>
+                </div>
+                <div class="panel-body">
+                    W tym panelu możesz zarządzać użytkownikami. Będą tutaj konta aktywne oraz nieaktywne, które możesz aktywować.
+                    <a href="/Admin/UserList" class="btn btn-primary">Przejdź</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+
+

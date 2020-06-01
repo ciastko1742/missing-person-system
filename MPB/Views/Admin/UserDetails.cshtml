@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Szczegóły użytkownika";
+}
+
+<h2>Użytkownik <u>@ViewBag.user.Login</u></h2>
+
+
+<div class="row">
+    <div class="col-md-4" id="detailsTableDiv">
+        <table class="table table-striped">
+            <tr><th>Login</th><td>@ViewBag.user.Login</td></tr>
+            <tr><th>Imię</th><td>@ViewBag.user.Firstname</td></tr>
+            <tr><th>Nazwisko</th><td>@ViewBag.user.Lastname</td></tr>
+            <tr><th>Rola</th><td>@ViewBag.user.Role</td></tr>
+            <tr><th>Konto:</th><td>@Html.Raw(ViewBag.user.nameActive())</td></tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+        @if (ViewBag.user.Active)
+        {
+            <a href="/Admin/Activate/@ViewBag.user.UserId" class="btn btn-danger">Dezaktywuj</a>
+        }
+        else
+        {
+            <a href="/Admin/Activate/@ViewBag.user.UserId" class="btn btn-success">Aktywuj</a>
+        }
+
+        <a href="/Admin/ChangeRole/@ViewBag.user.UserId" class="btn btn-primary">Zmień rolę</a>
+    </div>
+
+</div>

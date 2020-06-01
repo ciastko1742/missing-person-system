@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+}
+
+<h2>Lista użytkowników</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Login</th><th>Imię</th><th>Nazwisko</th><th>Rola</th><th>Aktywne konto</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var user in ViewBag.users)
+        {
+            <tr>
+                <td>@user.Login</td>
+                <td>@user.Firstname</td>
+                <td>@user.Lastname</td>
+                <td>@user.Role</td>
+                <td>@Html.Raw(user.nameActive())</td>
+                <td>
+                    <a href="/Admin/UserDetails/@user.UserId" class="btn btn-sm btn-primary">Szczegóły</a>
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>

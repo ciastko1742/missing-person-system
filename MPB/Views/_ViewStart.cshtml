@@ -1,0 +1,9 @@
+﻿@{
+   if (Session["UserID"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutForLogged.cshtml";
+    }else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

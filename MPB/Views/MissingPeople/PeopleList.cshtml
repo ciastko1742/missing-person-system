@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Lista zaginionych";
+}
+
+<h2>Lista zaginionych</h2>
+
+@if (ViewBag.formPerson != null)
+{
+    <p>@ViewBag.formPerson.PersonId</p>
+}
+
+<hr />
+<form action="/MissingPeople/PeopleList" method="get" class="form-inline">
+    <div class="input-group">
+        <input type="text" class="form-control" name="value" placeholder="Wpisz szukaną frazę..">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Szukaj</button>
+        </span>
+
+    </div>
+</form>
+@foreach (var person in ViewBag.MissingPeople)
+{
+<div class="media list-group-item">
+    <div class="media-left">
+            <img class="media-object" style="width: 64px; height: auto" src="@Url.Content(person.Image)" alt="Zdjęcie osoby">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">@person.Firstname @person.Lastname</h4>
+        Dodał: @person.getUser().Firstname @person.getUser().Lastname<br />
+        Wiek: @person.Age <br />
+        Ostatnio widziany: @person.Location
+    </div>
+    <div class="media-right">
+        <a href="/MissingPeople/PersonDetails/@person.PersonId" class="btn btn-sm btn-success">Wyświetl szczegóły</a>
+    </div>
+</div>
+}
